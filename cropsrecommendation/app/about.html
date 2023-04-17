@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
+    <title>About</title>
+</head>
+<body>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'predict' %}">predict</a></li>
+            <li><a href="/about">Contact</a></li>
+            <li><a href="{% url 'about' %}"">About</a></li>
+        </ul>
+    <h1>crop Recommendation</h1>
+    <p>
+    A crops recommendation system is a system that suggests suitable crops for a particular area based on user
+    inputs such as nitrogen (N), phosphorus (P), potassium (K), temperature, and rainfall. The system analyzes the soil and
+    environmental factors to provide personalized crop suggestions that match the user's requirements. This tool can be
+    helpful for farmers, gardeners, or anyone interested in growing crops. By inputting specific data into the system, users
+    can receive recommendations for crops that are most likely to grow successfully in their particular location.
+    </p>
+    <p>it was build as the final college project which is trained using machine learning model svm and randomforest. Django is used to develop the website for crops recommendationsystem</p>
+</body>
+</html>

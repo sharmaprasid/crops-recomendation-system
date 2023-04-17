@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crops Recommendation system</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
+</head>
+<body>
+
+            <ul class="menu">
+                <li><a href="{% url 'home' %}">Home</a></li>
+             
+                <li><a href="/about">Figures</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+            </ul>
+
+            <p style="text-align: center;">Welcome to Crops Recommendation System</p>
+            
+    
+       
+        <form action="{% url 'predict' %}" method="post">
+            {% csrf_token %}
+            <div class="box">
+    <table>
+        
+            <tr>
+                <td><label >N:</label></td>
+                <td><input type="number" name="N"></td>
+            </tr>
+            <tr>
+                <td><label for="p">P:</label></td>
+                <td><input type="number" name="p"></td>
+            </tr>
+            <tr>
+                <td><label for="k">K:</label></td>
+                <td><input type="number"  name="k"></td>
+            </tr>
+            <tr>
+                <td><label for="temperature">Temperature:</label></td>
+                <td><input type="number" name="temperature"></td>
+            </tr>
+            <tr>
+                <td><label for="humidity">Humidity:</label></td>
+                <td><input type="number"  name="humidity"></td>
+            </tr>
+            <tr>
+                        <td><label for="ph">ph:</label></td>
+                        <td><input type="number"  name="ph"></td>
+                    </tr>
+                        <tr>
+                            <td><label for="Rainfall">Rainfall:</label></td>
+                            <td><input type="text"  name="rainfall"></td>
+                        </tr>
+                      
+                        </table>
+                    </div>
+                        <button type="submit">Submit</button>
+                        
+        </form>        
+                    
+
+
+    <div class="result">
+        <p>Result from svm {{predict_svm}} with accuracy {{accuracy_svm}}</p>
+        <p>Result from rf {{predict_rf}} with accuracy {{accuracy_rf}}</p>
+    </div>
+    
+  
+  
+</body>
+</html>
