@@ -19,4 +19,9 @@ def main():
 
 
 if __name__ == "__main__":
+    from public.algorithm.rf import RandomForest
+    from public.algorithm.rf import DecisionTree
+    from public.algorithm.rf import Node
+    from public.algorithm.svm import SVM
+    from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
     main()
