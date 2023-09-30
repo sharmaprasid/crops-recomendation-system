@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static '/css/main.css' %}" rel="stylesheet">
+    <title>Figures</title>
+</head>
+
+<body>
+    <div>
+        <ul class="flex justify-end align-center gap-4 mt-4 text-xl " style="margin-right: 300px
+              ;">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'descrf' %}">Rf Figures</a></li>
+            <li><a href="{% url 'descsvm' %}">SVM Figures</a></li>
+
+
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'calculate' %}">Predict</a></li>
+        </ul>
+    </div>
+
+
+
+<p class="text-3xl ml-10 mb-8 mt-20"> Metrics</p>
+           <div class="flex   gap-8 my-6 border-2 border-black  mx-20">
+            
+                <div class="border-r-2 border-black  px-6 py-4" >
+                     <p class="font-bold text-xl">Accuracy</p>
+                    <p><span>Train Accuracy : </span> {{svm_train_accuracy}}</p>
+                    <p><span>Test Accuracy : </span>{{svm_test_accuracy}}</p>
+                    <p><span>val Accuracy : </span>{{svm_val_accuracy}}</p>
+                </div>
+                <div class="border-r-2 border-black  px-6 py-4" >
+                    <p class="font-bold text-xl">Precision</p>
+                <p> <span>Train Precision : </span>{{svm_train_precision}}</p>
+                <p><span>val Precision : </span>{{svm_val_precision}}</p>
+                <p><span>Test Precision : </span>{{svm_test_precision}}</p>
+
+            </div>
+            <div class="border-r-2 border-black  px-6 py-4" >
+                <p class="font-bold text-xl"> Recall</p>
+                <p><span>Train Recall : </span>{{svm_train_recall}}</p>
+                <p> <span>val Recall : </span>{{svm_val_recall}}</p>
+                <p> <span>Test Recall : </span>{{svm_test_recall}}</p>
+            </div>
+            <div class="px-6 py-4">
+                <p class="font-bold text-xl "> F1 Score</p>
+                <p><span>Train F1 Score : </span>{{svm_train_f1_score}}</p>
+                <p><span>Val F1 Score : </span>{{svm_val_f1_score}}</p>
+                <p><span>Test F1 Score : </span>{{svm_test_f1_score}}</p>
+            </div>
+            </div>
+                
+               
+               
+             
+             
+                
+                
+            
+                <div>
+                    <p class="text-3xl ml-10 mb-14">Confusion matrix</p>
+                    <div class="grid grid-cols-2 gap-4 mx-7">
+                        <img src="{% static '/image/svmt.png' %}" />
+                        <img src="{% static '/image/svmts.png' %}" />
+                        <img src="{% static '/image/svmv.png' %}" />
+                    </div>
+                </div>
+                
+                
+               
+                
+            
+        
+
+    </div>
+</body>
+
+</html>

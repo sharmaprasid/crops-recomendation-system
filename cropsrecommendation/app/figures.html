@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static '/css/main.css' %}" rel="stylesheet">
+    <title>Figures</title>
+</head>
+<body>
+    <div>
+        <ul class="flex justify-end align-center gap-4 mt-4 text-xl " style="margin-right: 300px
+              ;">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'descrf' %}">Rf</a></li>
+            <li><a href="{% url 'descsvm' %}">SVM</a></li>
+    
+    
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'calculate' %}">Predict</a></li>
+        </ul>
+    </div>
+  
+
+    
+    <div class="flex flex-col justify-center items-center">
+        <div><p class="text-3xl text-bold mt-10">Accuracy of System</p>
+        <p>Accuracy From svm {{accuracy_svm}}</p>
+        <p>Accuracy From rf {{accuracy_rf}}</p></div>
+       
+        <div>
+          <p class="text-3xl mx-5"> Outliers</p>
+          <div class="grid grid-cols-3 mx-5 mt-4">
+          <img src="{% static '/image/n_outlier.png' %}"/>
+            <img src="{% static '/image/p_outler.png' %}" />
+            <img src="{% static '/image/k_outlier.png' %}" />
+            <img src="{% static '/image/temperate_outlier.png' %}" />
+            <img src="{% static '/image/ph_outlier.png' %}" />
+            <img src="{% static '/image/rainfall_outlier.png' %}" />
+            <img src="{% static '/image/humidity_outlier.png' %}" />
+            </div>
+        </div>
+        <div>
+            <p class="text-3xl">Accuracy Comparision between SVM and RandomForest</p>
+            <img src="{% static '/image/accuracy_compare.png' %}" />
+        </div>
+        <div>
+            <p class="text-3xl">Correlation between different features</p>
+            <img src="{% static '/image/correlation_features.png' %}" />
+        </div>
+       
+        <div>
+            <p class="text-3xl ml-10">Confusion matrix</p>
+            <div class="grid grid-cols-2 gap-4 mx-7">
+                <img src="{% static '/image/rf_confusion.png' %}" />
+                <img src="{% static '/image/svm_confusion.png' %}" />
+            </div>
+         
+        </div>
+
+    </div>
+</body>
+</html>

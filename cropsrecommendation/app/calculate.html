@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static '/css/main.css' %}" rel="stylesheet">
+    <link href="{% static '/css/index.css' %}" rel="stylesheet">
+    
+
+    <title>Crops Recommendation system</title>
+    
+
+</head>
+ 
+<body class="background">
+    <div >
+        <ul class="flex justify-end align-center gap-4  py-4 text-xl " style="margin-right: 300px
+                  ;">
+            <li ><a href="{% url 'home' %}">Home</a></li>
+            
+            
+            
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'calculate' %}">Predict</a></li>
+
+        </ul>
+    </div>
+
+    <div class="flex items-center justify-center bg-[#DCE8E6] " >
+        <form action="{% url 'predict' %}" method="post"  class=" bg-blue-50 border-2 border-black px-10 py-10 shadow-md mt-20 " style="width: 500px; height: fit-content;">
+            {% csrf_token %}
+
+            <p class="text-xl my-3 bg-blue-300 py-3 px-3">Welcome to Crops Recommendation System</p>
+
+            <table class="my-10">
+                <tr >
+                    <td><label for="n">Nitrogen(N)</label></td>
+                    <td><input placeholder="10-200 kg/ha" class="mb-4 pl-5 ml-6 border-2 border-gray-300 hover:border-black "   style="width: 200px; height: 30px;" type="number" name="N" min="10" max="200" /></td>
+                </tr>
+                <tr>
+                    <td><label for="p">Phosphorus(P)</label></td>
+                    <td><input placeholder="10-200 kg/ha"  class="mb-4 pl-5 ml-6 border-2 border-gray-300 hover:border-black "  style="width: 200px; height: 30px;" type="number" name="p" min="10" max="200" /></td>
+                </tr>
+                <tr>
+                    <td><label for="k">Potassium(K)</label></td>
+                    <td><input placeholder="10-200 kg/ha" class="mb-4 pl-5 ml-6 border-2 border-gray-300 hover:border-black "  style="width: 200px; height: 30px;" type="number" name="k" min="10" max="200" /></td>
+                </tr>
+                <tr>
+                    <td><label for="temperature">Temperature</label></td>
+                    <td><input placeholder="0-300 °C" class="mb-4 pl-5 ml-6 border-2 border-gray-300 hover:border-black "  style="width: 200px; height: 30px;" type="number" name="temperature" min="0" max="300" /></td>
+                </tr>
+                <tr>
+                    <td><label for="humidity">Humidity</label></td>
+                    <td><input placeholder="0-100 %" class="mb-4 pl-5 ml-6  border-2 border-gray-300 hover:border-black "  style="width: 200px; height: 30px;" type="number" name="humidity" min="0" max="200" /></td>
+                </tr>
+                <tr >
+                    <td ><label for="ph">ph</label></td>
+                    <td><input placeholder="0-14 " class="mb-4 pl-5 ml-6 border-2 border-gray-300 hover:border-black " style="width: 200px; height: 30px;" type="number" name="ph" min="0" max="14" /></td>
+                </tr>
+                <tr>
+                    <td><label for="Rainfall">Rainfall</label></td>
+                    <td><input placeholder="0-200 mm" class="mb-4 pl-5 ml-6 border-2 border-gray-300 hover:border-black " style="width: 200px; height: 30px;"  type="number" name="rainfall" min="0" max="200" /></td>
+                </tr>
+            </table>
+
+
+            <button type="submit" class="text-white text-xl bg-blue-600 hover:bg-blue-300 px-12 mb-7 py-2">Predict</button>
+            <div class="mb-5">
+                <p><span class="text-white text-center text-xl bg-gray-600 px-2  py-2">Result from svm</span>
+                    <span class="text-2xl  ml-4 text-bold">{{predict_svm}}</span>
+                </p>
+            </div class="mb-3">
+            <p ><span class="text-white text-center text-xl bg-gray-600  px-5 py-2 ">Result from rf</span>
+            <span class="text-2xl ml-4 text-bold">{{ predict_rf }}</span>
+           
+            </p>
+            <div class="mt-8 text-xl ">
+                <p>To view diagram related to SVM <a href="{% url 'descsvm' %}"
+                        class="text-blue-600 cursor-pointed">here</a></p>
+            </div>
+            <div class="mt-2 text-xl ">
+                <p>To view diagram related to RandomForest <a href="{% url 'descrf' %}"
+                        class="text-blue-600 cursor-pointed">here</a></p>
+            </div>
+        <div class="mt-2 text-xl ">
+            <p>To view diagram related to overall project <a href="{% url 'figures' %}" class="text-blue-600 cursor-pointed">here</a></p>
+        </div>
+        </form>
+    </div>
+
+    
+    <div class="bg-gray-600  py-6 mt-10" >
+        <p class="text-center text-white text-xl">@copyright2023</p>
+    
+    </div>
+</body>
+
+</html>
